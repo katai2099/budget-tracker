@@ -47,7 +47,7 @@ class BudgetTrackerApplicationTests {
 
     @Test
     public void getCategory() throws Exception {
-        mockMvc.perform(MockMvcRequestBuilders.get("/api/category"))
+        mockMvc.perform(MockMvcRequestBuilders.get("/api/category/"))
                 .andExpect(jsonPath("$", hasSize(1)));
     }
 

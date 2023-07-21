@@ -1,6 +1,8 @@
 package com.spring.budgettracker;
 
+import com.spring.budgettracker.model.Category;
 import com.spring.budgettracker.model.User;
+import com.spring.budgettracker.repository.CategoryRepository;
 import com.spring.budgettracker.repository.UserRepository;
 import org.springframework.boot.CommandLineRunner;
 import org.springframework.boot.SpringApplication;
@@ -25,5 +27,14 @@ public class BudgetTrackerApplication {
                             "test")
                     .build());
         };
+    }
+
+    @Bean
+    public CommandLineRunner sampleCategories(CategoryRepository categoryRepository) {
+        return (args -> {
+            categoryRepository.save(Category.builder()
+                    .name("Food")
+                    .build());
+        });
     }
 }
